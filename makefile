@@ -6,6 +6,7 @@ FLAGS=			# Other flags
 
 
 INCLUDE_DIR=include
+SOURCE_DIR=src
 
 PROG_NAME=mon_prog
 SRCS=\
@@ -27,7 +28,7 @@ OBJS=${SRCS:${EXT}=.o}
 ${PROG_NAME}: ${OBJS}
 	${CC} -o $@ ${OBJS} ${LDFLAGS} ${FLAGS}
 
-%.o: src/%${EXT}
+%.o: ${SOURCE_DIR}/%${EXT}
 	${CC} -o $@ -c $< ${FLAGS}
 
 mrproper:
